@@ -2,3 +2,6 @@
 /.gradle/
 /.idea/
 applicatio-oauth.properties
+build/generated/
+build/tmp/
+src/test/resources/
