@@ -33,11 +33,13 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String userNameAttributeName = userRequest
                 .getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
+        System.out.println("userNameAttributeName : " + userNameAttributeName);
 
         OAuthAttributes attributes = OAuthAttributes
                 .of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
         User user = saveOrUpdate(attributes);
+        System.out.println("user : " + user);
         httpSession.setAttribute("user", new SessionUser(user));
 
         return new DefaultOAuth2User(
