@@ -2,7 +2,3 @@
 /.gradle/
 /.idea/
 applicatio-oauth.properties
-build/generated/
-build/tmp/
-src/test/resources/
-src/test/java/com/kuang/portfolio/springboot/counfig/
