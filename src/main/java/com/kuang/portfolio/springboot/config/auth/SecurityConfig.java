@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/h2-console/**")
                 .permitAll()
                 .antMatchers("/api/v1/**")
-                .hasRole(Role.GUEST.name()).anyRequest().authenticated()
+                .hasRole(Role.USER.name()).anyRequest().authenticated()
                 .and()
                 .logout().logoutSuccessUrl("/")
                 .and()
