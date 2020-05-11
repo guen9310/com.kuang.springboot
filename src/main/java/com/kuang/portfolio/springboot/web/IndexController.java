@@ -2,6 +2,7 @@ package com.kuang.portfolio.springboot.web;
 
 import com.kuang.portfolio.springboot.config.auth.LoginUser;
 import com.kuang.portfolio.springboot.config.auth.dto.SessionUser;
+import com.kuang.portfolio.springboot.domain.user.Role;
 import com.kuang.portfolio.springboot.service.posts.PostsService;
 import com.kuang.portfolio.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,6 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
 
     // 목차
@@ -41,6 +41,8 @@ public class IndexController {
     //글 등록 페이지 이동
     @GetMapping("/posts/save")
     public String postsSave(){
+        String name = Role.USER.name();
+        System.out.println("name : " + name);
         return "posts-save";
     }
 
