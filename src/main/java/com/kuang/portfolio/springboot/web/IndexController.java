@@ -40,9 +40,9 @@ public class IndexController {
 
     //글 등록 페이지 이동
     @GetMapping("/posts/save")
-    public String postsSave(){
+    public String postsSave(Model model){
         String name = Role.USER.name();
-        System.out.println("name : " + name);
+        model.addAttribute("name",name);
         return "posts-save";
     }
 
