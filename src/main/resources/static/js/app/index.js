@@ -27,6 +27,7 @@ var main = {
     window.location.href = '/';
     }).fail(function (error) {
     alert(JSON.stringify(error));
+    console.log();
         });
     },
     update : function() {
