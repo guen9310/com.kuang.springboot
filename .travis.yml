@@ -42,7 +42,7 @@ deploy:
     key: kuang-springboot-service.zip
 
     bundle_type: zip
-    application: kuang-springboot-service
+    application: kaung-springboot-webservice
 
     deployment_group: kuang-springboot-service-group
 
