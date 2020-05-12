@@ -1,4 +1,7 @@
 var main = {
+    user : function() {
+
+    },
     init : function() {
     var _this = this;
     $('#btn-save').on('click',function() {
@@ -27,6 +30,7 @@ var main = {
     window.location.href = '/';
     }).fail(function (error) {
     alert(JSON.stringify(error));
+    console.log(data);
         });
     },
     update : function() {

@@ -58,6 +58,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
+                //가입 시 기본 권한을 GUEST로 설정
                 .role(Role.GUEST)
                 .build();
     }

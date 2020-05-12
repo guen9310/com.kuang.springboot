@@ -15,17 +15,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                //Cross Site Request Forgery 기능 비활성화
                 .csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
                     .authorizeRequests()
+                    // .anMatchers = 권한 부여
                     .antMatchers("/",
                     "/css/**",
                     "/images/**",
                     "/js/**",
                     "/h2-console/**")
+                    // 전체 접근 가능
                     .permitAll()
                         .antMatchers("/api/v1/**")
+                        // USER 권한을 가진 계정만 접근
                         .hasRole(Role.USER.name())
                         .anyRequest().authenticated()
                 .and()
