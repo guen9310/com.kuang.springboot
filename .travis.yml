@@ -18,6 +18,22 @@ script: "./gradlew clean build"
 before_install:
   - chmod +x gradlew
 
+before_deploy:
+  - zip -r kuang-springboot-service *
+  - mkdir -p deploy
+  - mv kuang-springboot-service.zip deploy/kuang-springboot-service.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: kuang-springboot-service-bucket
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 # CI Complete
 notifications:
   email:
