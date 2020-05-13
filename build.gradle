@@ -16,6 +16,9 @@ buildscript {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
+    group 'com.kuang.springboot'
+    version '1.0.1-snapshot'
+
     repositories {
         mavenCentral()
         jcenter()
