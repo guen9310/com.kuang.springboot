@@ -25,7 +25,7 @@ before_deploy:
   - cp build/libs/*.jar before-deploy/
   - cd before-deploy && zip -r before-deploy *
   - cd ../ && mkdir -p deploy
-  - mv before-deploy/before-deploy.zip deploy/com.kuang.springboot.zip
+  - mv before-deploy/before-deploy.zip deploy/kuang-springboot-service.zip
 
 deploy:
   - provider: s3
@@ -35,21 +35,17 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: private
-    local_dir: deploy
+    local_dir: deploy # before_deploy dir
     wait-until-deployed: true
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-
-    bucket: kuang-springboot-service-bucket
-    key: kuang-springboot-service.zip
-
+    bucket: kuang-springboot-service-bucket # S3 Bucket
+    key: kuang-springboot-service.zip # Build File
     bundle_type: zip
-    application: kaung-springboot-webservice
-
-    deployment_group: kuang-springboot-webservice-group
-
+    application: kaung-springboot-webservice # WEB Application
+    deployment_group: kuang-springboot-webservice-group # Codedeploy Group
     region: ap-northeast-2
     wait-until-deployed: true
 
