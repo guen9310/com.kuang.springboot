@@ -25,7 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     "/css/**",
                     "/images/**",
                     "/js/**",
-                    "/h2-console/**")
+                    "/h2-console/**",
+                    "/profile")
                     // 전체 접근 가능
                     .permitAll()
                         .antMatchers("/api/v1/**")
